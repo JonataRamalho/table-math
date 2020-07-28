@@ -2,25 +2,21 @@ import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 
 export default StyleSheet.create({
-    contentMain: {
+    container: {
         flex: 1,
         backgroundColor: '#FDFDFD',
         paddingTop: Constants.statusBarHeight + 24,
         alignItems: 'center',
     },
 
-    viewUserInput: {
+    inputComponent: {
         alignItems: 'center',
     },
 
-    text: {
+    description: {
         fontSize: 22,
         color: '#000',
-    },
-
-    viewInput: {
-        alignItems: 'center',
-        paddingTop: 8,
+        paddingBottom: 8,
     },
 
     input: {
