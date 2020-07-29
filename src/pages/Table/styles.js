@@ -28,6 +28,32 @@ export default StyleSheet.create({
         paddingLeft: 24,
         fontSize: 18,
         color: '#000',
+    },
+
+    operationsContent: {
+        alignItems: "center",
+        paddingTop: 24,
+    },
+
+    buttonBox: {
+        width: 280,
+        paddingTop: 8,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+
+    button: {
+        backgroundColor: '#85AEE2',
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+    },
+
+    operationText: {
+        color: '#FFF',
+        fontSize: 40,
+        fontWeight: "bold",
+        textAlign: "center",
     }
 
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 export default function Table() {
@@ -13,6 +13,27 @@ export default function Table() {
                     placeholder='0'
                     placeholderTextColor='#7B7B7B'
                 />
+            </View>
+
+            <View style={styles.operationsContent}>
+                <Text style={styles.description}>Escolha uma Operação</Text>
+                <View style={styles.buttonBox}>
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.operationText}>+</Text>
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.operationText}>-</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.operationText}>÷</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.operationText}>x</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );
