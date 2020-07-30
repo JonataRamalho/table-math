@@ -16,7 +16,7 @@ export default function Table() {
             </View>
 
             <View style={styles.operationsContent}>
-                <Text style={styles.description}>Escolha uma Operação</Text>
+                <Text style={styles.description}>Escolha uma operação</Text>
                 <View style={styles.buttonBox}>
                     <TouchableOpacity style={styles.button}>
                         <Text style={styles.operationText}>+</Text>
@@ -33,6 +33,32 @@ export default function Table() {
                     <TouchableOpacity style={styles.button}>
                         <Text style={styles.operationText}>x</Text>
                     </TouchableOpacity>
+                </View>
+            </View>
+
+            <View style={styles.resultContent}>
+                <View style={styles.resultTable}>
+                    <View style={styles.titleContainer}>
+                        <Text style={styles.title}>Tabuada</Text>
+                    </View>
+                    <View style={styles.resultBox}>
+                        <View>
+                            <Text style={styles.result}>1 x 0 = 0</Text>
+                            <Text style={styles.result}>1 x 1 = 1</Text>
+                            <Text style={styles.result}>1 x 2 = 2</Text>
+                            <Text style={styles.result}>1 x 3 = 3</Text>
+                            <Text style={styles.result}>1 x 4 = 4</Text>
+                        </View>
+
+                        <View>
+                            <Text style={styles.result}>1 x 5 = 5</Text>
+                            <Text style={styles.result}>1 x 6 = 6</Text>
+                            <Text style={styles.result}>1 x 7 = 7</Text>
+                            <Text style={styles.result}>1 x 8 = 8</Text>
+                            <Text style={styles.result}>1 x 9 = 9</Text>
+                            <Text style={styles.result}>1 x 10 = 10</Text>
+                        </View>
+                    </View>
                 </View>
             </View>
         </View>

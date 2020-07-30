@@ -54,6 +54,45 @@ export default StyleSheet.create({
         fontSize: 40,
         fontWeight: "bold",
         textAlign: "center",
+    },
+
+    resultContent: {
+        width: 300,
+        height: 300,
+        marginTop: 24,
+        alignItems: 'center',
+    },
+
+    resultTable: {
+        backgroundColor: '#F8F8F8',
+        width: 290,
+        height: 285,
+        borderRadius: 16,
+        elevation: 6,
+        alignItems: 'center',
+    },
+
+    titleContainer: {
+        marginTop: 8,
+        marginBottom: 8, 
+    },
+
+    title: {
+        fontSize: 24,
+        color: '#000',
+    },
+
+    resultBox: {
+        width: 230,
+        paddingTop: 8,
+        marginLeft: 12,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
+
+    result: {
+        fontSize: 16,
+        marginBottom: 16,
     }
 
 });
