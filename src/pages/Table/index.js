@@ -1,8 +1,20 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { useFonts, Quicksand_500Medium, Quicksand_700Bold } from '@expo-google-fonts/quicksand';
+import { AppLoading } from 'expo';
 import styles from './styles';
 
 export default function Table() {
+    
+    let [fontsLoaded] = useFonts({
+        Quicksand_500Medium,
+        Quicksand_700Bold,
+    });
+
+    if (!fontsLoaded) {
+        return <AppLoading />;
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.inputComponent}>
