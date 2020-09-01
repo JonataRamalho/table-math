@@ -8,7 +8,9 @@ import styles from './styles';
 export default function Table() {
 
     const [calculationNumber, setCalculationNumber] = useState('');
-    
+    const [calculationOperation, setCalculationOperation] = useState('');
+
+
     let [fontsLoaded] = useFonts({
         Quicksand_500Medium,
         Quicksand_700Bold,
@@ -23,18 +25,8 @@ export default function Table() {
         try {
             
             checkCalculationNumber();
-
-            Alert.alert(
-                "Teste",
-                `Número válido: ${calculationNumber}`,
-                [
-                    {
-                        text: "Ok",
-                    },
-                ],
-    
-                { cancelable: false }
-            );
+            
+            calculate(operation);
             
         } catch(err) {
             Alert.alert(
@@ -52,7 +44,6 @@ export default function Table() {
     }
 
     function checkCalculationNumber() {
-
         if(calculationNumber > 100) {
             throw "Escolha um número maior que 0 e menor que 100.";
         } else if(calculationNumber === "") {
@@ -63,10 +54,18 @@ export default function Table() {
 
     }
 
-    function checkNumber(){
+    function checkNumber() {
         const expression = /[a-zA-Z\W]/;
 
         return expression.test(calculationNumber);
+    }
+
+    function calculate(operation) {
+        add(operation);
+    }
+
+    function add(operation) {
+        setCalculationOperation(operation);
     }
 
     return (
@@ -122,20 +121,20 @@ export default function Table() {
                         </View>
                         <View style={styles.resultBox}>
                             <View>
-                                <Text style={styles.result}>1 x 0 = 0</Text>
-                                <Text style={styles.result}>1 x 1 = 1</Text>
-                                <Text style={styles.result}>1 x 2 = 2</Text>
-                                <Text style={styles.result}>1 x 3 = 3</Text>
-                                <Text style={styles.result}>1 x 4 = 4</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 0 = 0</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 1 = 1</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 2 = 2</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 3 = 3</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 4 = 4</Text>
                             </View>
 
                             <View>
-                                <Text style={styles.result}>1 x 5 = 5</Text>
-                                <Text style={styles.result}>1 x 6 = 6</Text>
-                                <Text style={styles.result}>1 x 7 = 7</Text>
-                                <Text style={styles.result}>1 x 8 = 8</Text>
-                                <Text style={styles.result}>1 x 9 = 9</Text>
-                                <Text style={styles.result}>1 x 10 = 10</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 5 = 5</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 6 = 6</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 7 = 7</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 8 = 8</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 9 = 9</Text>
+                                <Text style={styles.result}>1 { calculationOperation } 10 = 10</Text>
                             </View>
                         </View>
                     </View>
