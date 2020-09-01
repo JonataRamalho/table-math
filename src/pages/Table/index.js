@@ -1,10 +1,13 @@
-import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { useFonts, Quicksand_500Medium, Quicksand_700Bold } from '@expo-google-fonts/quicksand';
 import { AppLoading } from 'expo';
+
 import styles from './styles';
 
 export default function Table() {
+
+    const [calculationNumber, setCalculationNumber] = useState('');
     
     let [fontsLoaded] = useFonts({
         Quicksand_500Medium,
@@ -13,6 +16,57 @@ export default function Table() {
 
     if (!fontsLoaded) {
         return <AppLoading />;
+    }
+
+    function checkCalculationNumberAndCalculate(operation) {
+    
+        try {
+            
+            checkCalculationNumber();
+
+            Alert.alert(
+                "Teste",
+                `Número válido: ${calculationNumber}`,
+                [
+                    {
+                        text: "Ok",
+                    },
+                ],
+    
+                { cancelable: false }
+            );
+            
+        } catch(err) {
+            Alert.alert(
+                "Ops!",
+                `${err}`,
+                [
+                    {
+                        text: "Ok",
+                    },
+                ],
+
+                { cancelable: false }
+            );
+        }
+    }
+
+    function checkCalculationNumber() {
+
+        if(calculationNumber > 100) {
+            throw "Escolha um número maior que 0 e menor que 100.";
+        } else if(calculationNumber === "") {
+            throw "Está vazio, digite um número."
+        } else if(checkNumber()) {
+            throw "Não podemos calcular com caractere especial."
+        } 
+
+    }
+
+    function checkNumber(){
+        const expression = /[a-zA-Z\W]/;
+
+        return expression.test(calculationNumber);
     }
 
     return (
@@ -27,25 +81,35 @@ export default function Table() {
                         keyboardType='numeric'
                         placeholder='0'
                         placeholderTextColor='#7B7B7B'
+                        onChangeText={number => setCalculationNumber(number)}
+                        value={calculationNumber}
                     />
                 </View>
 
                 <View style={styles.operationsContent}>
                     <Text style={styles.description}>Escolha uma operação</Text>
                     <View style={styles.buttonBox}>
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button}
+                        onPress={() => checkCalculationNumberAndCalculate('+')}
+                        >
                             <Text style={styles.operationText}>+</Text>
                         </TouchableOpacity>
                         
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button}
+                        onPress={() => checkCalculationNumberAndCalculate('-')}
+                        >
                             <Text style={styles.operationText}>-</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button}
+                        onPress={() => checkCalculationNumberAndCalculate('÷')}
+                        >
                             <Text style={styles.operationText}>÷</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button}
+                        onPress={() => checkCalculationNumberAndCalculate('x')}
+                        >
                             <Text style={styles.operationText}>x</Text>
                         </TouchableOpacity>
                     </View>
