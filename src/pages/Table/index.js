@@ -10,6 +10,7 @@ export default function Table() {
     const [calculationNumber, setCalculationNumber] = useState('');
     const [calculationOperation, setCalculationOperation] = useState('');
 
+    let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     let [fontsLoaded] = useFonts({
         Quicksand_500Medium,
@@ -62,10 +63,25 @@ export default function Table() {
 
     function calculate(operation) {
         add(operation);
+
+        changeNumbersAccording(operation);
+
     }
 
     function add(operation) {
         setCalculationOperation(operation);
+    }
+
+    function changeNumbersAccording(operation) {
+        if(operation === "-") {
+            numbers.forEach((item, index) => {
+                numbers[index] = parseInt(calculationNumber) + index;
+            });
+        } else if (operation === "÷") {
+            numbers.forEach((item, index) => {
+                numbers[index] = parseInt(calculationNumber) * item;
+            });
+        } 
     }
 
     return (
