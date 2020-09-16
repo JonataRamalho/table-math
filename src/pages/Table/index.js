@@ -10,6 +10,7 @@ export default function Table() {
     const [calculationNumber, setCalculationNumber] = useState('');
     const [calculationOperation, setCalculationOperation] = useState('');
     const [numbersList, setNumbersList] = useState('');
+    const [calculationResult, setCalculationResult] = useState('');
 
     let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     let results = [];
@@ -71,6 +72,8 @@ export default function Table() {
         addNumbersList();
 
         execute(operation);
+
+        addResult();
 
     }
 
@@ -155,6 +158,10 @@ export default function Table() {
         }
     }
 
+    function addResult() {
+        setCalculationResult(results);
+    }
+
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scroll}
@@ -208,20 +215,20 @@ export default function Table() {
                         </View>
                         <View style={styles.resultBox}>
                             <View>
-                                <Text style={styles.result}>{ enumerateLeftSide(0) } { calculationOperation } { enumerateRightSide(0) } = 0</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(1) } { calculationOperation } { enumerateRightSide(1) } = 1</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(2) } { calculationOperation } { enumerateRightSide(2) } = 2</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(3) } { calculationOperation } { enumerateRightSide(3) } = 3</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(4) } { calculationOperation } { enumerateRightSide(4) } = 4</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(0) } { calculationOperation } { enumerateRightSide(0) } = { calculationResult[0] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(1) } { calculationOperation } { enumerateRightSide(1) } = { calculationResult[1] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(2) } { calculationOperation } { enumerateRightSide(2) } = { calculationResult[2] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(3) } { calculationOperation } { enumerateRightSide(3) } = { calculationResult[3] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(4) } { calculationOperation } { enumerateRightSide(4) } = { calculationResult[4] }</Text>
                             </View>
 
                             <View>
-                                <Text style={styles.result}>{ enumerateLeftSide(5) } { calculationOperation } { enumerateRightSide(5) } = 5</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(6) } { calculationOperation } { enumerateRightSide(6) } = 6</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(7) } { calculationOperation } { enumerateRightSide(7) } = 7</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(8) } { calculationOperation } { enumerateRightSide(8) } = 8</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(9) } { calculationOperation } { enumerateRightSide(9) } = 9</Text>
-                                <Text style={styles.result}>{ enumerateLeftSide(10) } { calculationOperation } { enumerateRightSide(10) } = 10</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(5) } { calculationOperation } { enumerateRightSide(5) } = { calculationResult[5] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(6) } { calculationOperation } { enumerateRightSide(6) } = { calculationResult[6] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(7) } { calculationOperation } { enumerateRightSide(7) } = { calculationResult[7] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(8) } { calculationOperation } { enumerateRightSide(8) } = { calculationResult[8] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(9) } { calculationOperation } { enumerateRightSide(9) } = { calculationResult[9] }</Text>
+                                <Text style={styles.result}>{ enumerateLeftSide(10) } { calculationOperation } { enumerateRightSide(10) } = { calculationResult[10] }</Text>
                             </View>
                         </View>
                     </View>
