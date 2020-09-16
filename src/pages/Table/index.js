@@ -12,6 +12,7 @@ export default function Table() {
     const [numbersList, setNumbersList] = useState('');
 
     let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let results = [];
 
     let [fontsLoaded] = useFonts({
         Quicksand_500Medium,
@@ -68,6 +69,9 @@ export default function Table() {
         changeNumbersAccording(operation);
 
         addNumbersList();
+
+        execute(operation);
+
     }
 
     function add(operation) {
@@ -105,6 +109,51 @@ export default function Table() {
             return numbersList[number];
         }
     }    
+
+    function execute(operation) {
+        switch(operation) {
+            case "+":
+                numbers.forEach((item, index) => {
+                    results.splice(index, 1, parseInt(calculationNumber) + item); 
+                });
+
+                break;
+            
+            case "-":
+                numbers.forEach((item, index) => {
+                    results.splice(index, 1, item - parseInt(calculationNumber));
+                });
+
+                break;
+            
+            case "÷":
+                numbers.forEach((item, index) => {
+                    results.splice(index, 1, item/parseInt(calculationNumber));
+                });
+
+                break;
+            
+            case "x":
+                numbers.forEach((item, index) => {
+                    results.splice(index, 1, parseInt(calculationNumber) * item);
+                });
+
+                break;
+
+            default:
+                Alert.alert(
+                    "Alerta",
+                    "Error ao escolher a operação, tente novamente.",
+                    [
+                        {
+                            text: "Ok",
+                        },
+                    ],
+
+                    { cancelable: false }
+                );
+        }
+    }
 
     return (
         <View style={styles.container}>
