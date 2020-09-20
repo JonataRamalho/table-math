@@ -195,16 +195,17 @@ export default function Table() {
                         </TouchableOpacity>
 
                         <TouchableOpacity style={styles.button}
+                        onPress={() => checkCalculationNumberAndCalculate('x')}
+                        >
+                            <Text style={styles.operationText}>x</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.button}
                         onPress={() => checkCalculationNumberAndCalculate('÷')}
                         >
                             <Text style={styles.operationText}>÷</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.button}
-                        onPress={() => checkCalculationNumberAndCalculate('x')}
-                        >
-                            <Text style={styles.operationText}>x</Text>
-                        </TouchableOpacity>
                     </View>
                 </View>
 
