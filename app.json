@@ -4,6 +4,7 @@
     "slug": "tablemath",
     "version": "1.0.0",
     "orientation": "portrait",
+    "description": "Tabuada simples que ajuda facilmente a praticar as operações de adição, subtração, multiplicação e divisão.",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
